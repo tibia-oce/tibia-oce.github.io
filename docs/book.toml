@@ -10,7 +10,7 @@ additional-js = []
 default-theme = "dark"
 preferred-dark-theme = "ayu"
 no-section-label = true
-git-repository-url = "https://github.com/tibia-oce/"
+git-repository-url = "https://tibia-oce.github.io/"
 git-repository-icon = "fa-github"
 git-branch = "master"
 
