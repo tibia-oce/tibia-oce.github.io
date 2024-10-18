@@ -6,8 +6,6 @@
 
 - [Introduction](introduction.md)
 
-# Notes
+## Projects
 
----
-
-- [Placeholder](./notes/placeholder.md)
+- [Infrastructure](infrastructure/README.md)
