@@ -23,3 +23,7 @@ copyable = false
 
 [output.html.search]
 limit-results = 15
+
+[[chapter]]
+name = "Infrastructure"
+path = "infrastructure/README.md"
