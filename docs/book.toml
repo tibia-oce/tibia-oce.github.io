@@ -24,6 +24,6 @@ copyable = false
 [output.html.search]
 limit-results = 15
 
-[preprocessor.chapter-list]
+[[chapter]]
 name = "Infrastructure"
 path = "infrastructure/README.md"

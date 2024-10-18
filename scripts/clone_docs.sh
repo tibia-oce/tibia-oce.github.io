@@ -10,7 +10,7 @@ fi
 
 REPO_URL="$1"
 TEMP_DIR="temp"
-DOCS_DIR="docs"
+DOCS_DIR="docs/src"
 
 # Extract repository name from URL
 REPO_NAME=$(basename -s .git "$REPO_URL")
