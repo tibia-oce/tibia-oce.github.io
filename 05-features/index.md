@@ -1,7 +1,7 @@
 ---
 label: Game Features
 icon: gear
-order: 50
+order: 60
 expanded: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 label: Mythbound Lore
 icon: book
-order: 20
+order: 90
 expanded: false
 ---
 

@@ -1,7 +1,7 @@
 ---
-label: World Map
-icon: map
-order: 70
+label: Regions
+icon: milestone
+order: 40
 expanded: false
 ---
 

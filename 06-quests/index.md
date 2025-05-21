@@ -1,7 +1,7 @@
 ---
 label: Quests
 icon: star
-order: 60
+order: 50
 expanded: false
 ---
 

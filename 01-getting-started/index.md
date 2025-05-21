@@ -1,8 +1,8 @@
 ---
 label: Getting Started
 icon: rocket
-order: 10
-expanded: true
+order: 100
+expanded: false
 ---
 
 # Getting Started with Mythbound

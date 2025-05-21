@@ -1,6 +1,7 @@
 ---
-label: Home
-icon: home
+label: About
+icon: question
+order: 10
 ---
 
 # Mythbound RPG Wiki
@@ -36,19 +37,14 @@ Everything about gathering professions: mining, herbalism, woodcutting, and skin
 [!ref icon="map" text="World Map"](07-regions/index.md)
 Explore the world of Mythbound: cities, dungeons, and special areas.
 
-## Latest Updates
+## Community Contributions
 
-+++ New to v6.0
+This wiki is maintained by the Mythbound player community. If you'd like to contribute:
 
-- New starter island: Kindernia
-- Completely redesigned Ancestral Rift system
-- New professions: Skinning, Mining, Herbalist, Woodcutting
-- Legendary Weapons system
-- World Bosses
-- Tournament Coin currency
-  +++
+1. Visit our [GitHub Repository](https://github.com/tibia-oce/tibia-oce.github.io)
+2. Create a fork of the repository
+3. Make your changes and submit a pull request
+4. Wiki maintainers will review and merge your contributions
 
-## Community Links
-
-[!button variant="primary" icon="people" text="Join the Discord"](https://discord.gg/X7rdNahscB)
-[!button variant="secondary" icon="download" text="Download Client"](https://mega.nz/file/XRAREDRa#1xPJT6rMckFsAkbZJrZi9rZsePo2XBn162mEfWRcf1k)
+[!button variant="primary" icon="people" text="Join the Discord"](https://discord.gg/TT2ebFwEyE)
+[!button variant="secondary" icon="download" text="Download Client"](https://discord.gg/TT2ebFwEyE)

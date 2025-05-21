@@ -1,7 +1,7 @@
 ---
 label: Professions
 icon: tools
-order: 30
+order: 80
 expanded: false
 ---
 
