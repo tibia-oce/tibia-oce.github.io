@@ -1,5 +1,5 @@
 ---
-label: Frequently Asked Questions
+label: FAQ
 icon: question
 order: 20
 ---
@@ -10,7 +10,7 @@ order: 20
 
 ### What is Mythbound?
 
-Mythbound is a custom Tibia server based on protocol 12.72, featuring unique RPG elements like professions, rifts, and advanced progression systems beyond traditional leveling.
+Mythbound is a custom Tibia server based on protocol 10.98, featuring unique RPG elements like professions, rifts, and advanced progression systems beyond traditional leveling.
 
 ### Is Mythbound free to play?
 
@@ -42,7 +42,7 @@ Each World Boss has a specific day and time of the week when it appears. Check t
 
 ### What client version does Mythbound use?
 
-Mythbound uses a custom client based on Tibia protocol 12.72.
+Mythbound uses a custom client based on Tibia protocol 10.98.
 
 ### I'm experiencing lag/crashes. How can I fix this?
 
