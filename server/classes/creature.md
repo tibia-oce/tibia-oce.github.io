@@ -1,0 +1,5 @@
+---
+title: Creature
+---
+
+# Creature
