@@ -9,32 +9,33 @@
     <meta name="generator" content="Retype 3.8.1">
 
     <!-- Primary Meta Tags -->
-    <title>Formatting</title>
-    <meta name="title" content="Formatting">
-    <meta name="description" content="Hello">
+    <title>Errors</title>
+    <meta name="title" content="Errors">
+    <meta name="description" content="Description: calling a function that doesn't exist">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tibia-oce.github.io/formatting/">
+    <link rel="canonical" href="https://tibia-oce.github.io/lua/auxiliary/errors/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="og:title" content="Formatting">
-    <meta property="og:description" content="Hello">
+    <meta property="og:url" content="https://tibia-oce.github.io/lua/auxiliary/errors/">
+    <meta property="og:title" content="Errors">
+    <meta property="og:description" content="Description: calling a function that doesn't exist">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="twitter:title" content="Formatting">
-    <meta property="twitter:description" content="Hello">
+    <meta property="twitter:url" content="https://tibia-oce.github.io/lua/auxiliary/errors/">
+    <meta property="twitter:title" content="Errors">
+    <meta property="twitter:description" content="Description: calling a function that doesn't exist">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.8.1.801139593773" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +50,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Mythbound</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Wiki</span>
                     </div>
@@ -162,13 +163,169 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="formatting" class="break-words">
+<doc-anchor-target id="errors" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#formatting">#</doc-anchor-trigger>
-        <span>Formatting</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#errors">#</doc-anchor-trigger>
+        <span>Errors</span>
     </h1>
 </doc-anchor-target>
-<p>Hello</p>
+<doc-anchor-target id="list-of-errors">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#list-of-errors">#</doc-anchor-trigger>
+        <span>List of errors</span>
+    </h3>
+</doc-anchor-target>
+<doc-anchor-target id="attempt-to-call-a-nil-value">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#attempt-to-call-a-nil-value">#</doc-anchor-trigger>
+        <span>Attempt to call a nil value</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: calling a function that doesn&#x27;t exist</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">printtt(&quot;abc&quot;) -- printtt is not a function
+
+test() -- calling before it's defined, same error
+
+function test() end
+
+test() -- works</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="unexpected-symbol-near-something">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#unexpected-symbol-near-something">#</doc-anchor-trigger>
+        <span>Unexpected symbol near &#x27;something&#x27;</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: an invalid character is placed next to a value/keyword/variable/function call</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function abc()) end -- unexpected symbol near ')'
+
+local a = 5
+a l= 15 -- unexpected symbol near 'l'
+
+local a = 5] -- unexpected symbol near ']'</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="attempt-to-index-global-variable-a-nil-value">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#attempt-to-index-global-variable-a-nil-value">#</doc-anchor-trigger>
+        <span>Attempt to index global &#x27;variable&#x27; (a nil value)</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: indexing via <code v-pre>[key]</code> or <code v-pre>.key</code> for a variable that doesn&#x27;t exist</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">abc.x = 5 -- abc is nil, error
+
+abc = {} -- abc defined here
+
+abc.x = 5 -- works
+
+xyz['x'] = 'abc' -- xyz is nil, error</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="attempt-to-perform-arithmetic-on-a-nil-value">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#attempt-to-perform-arithmetic-on-a-nil-value">#</doc-anchor-trigger>
+        <span>Attempt to perform arithmetic on a nil value</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: performing arithmetic (*, /, -, +, %, ^) on a nil value</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">print(xyz + 5) -- error, xyz not defined
+a = a + 5 -- error, a not defined</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="attempt-to-perform-arithmetic-on-field--a-nil-value">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#attempt-to-perform-arithmetic-on-field--a-nil-value">#</doc-anchor-trigger>
+        <span>Attempt to perform arithmetic on field &#x27;?&#x27; (a nil value)</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: performing arithmetic (*, /, -, +, %, ^) on a nil value</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {}
+t.x = t.x + 5</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="attempt-to-compare-nil-with-type">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#attempt-to-compare-nil-with-type">#</doc-anchor-trigger>
+        <span>Attempt to compare nil with &lt;TYPE&gt;</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: using a comparison operator (&lt;, &gt;, ~=, ==, &gt;=, &lt;=) in which one side is a nil value</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = 5
+print(x &lt; y) -- y is not defined</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="malformed-number-near-number">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#malformed-number-near-number">#</doc-anchor-trigger>
+        <span>Malformed number near &lt;NUMBER&gt;</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: the number has an invalid character next to it</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">print(12345aaa) -- aaa makes it a malformed number</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="unfinished-capture--malformed-pattern">
+    <h4>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#unfinished-capture--malformed-pattern">#</doc-anchor-trigger>
+        <span>Unfinished capture | Malformed pattern</span>
+    </h4>
+</doc-anchor-target>
+<p>Description: the pattern is missing a closing <code v-pre>)</code>, or a closing <code v-pre>]</code></p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">print(string.match('ABC', '(')) -- unfinished capture
+print(string.match('ABC', '[')) -- malformed pattern</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="interpreting-errors">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#interpreting-errors">#</doc-anchor-trigger>
+        <span>Interpreting errors</span>
+    </h3>
+</doc-anchor-target>
+<p>When you get an error, Lua provides a stack trace showing you where it originates from, where the error occurs, the function calls that led to the error, and the line number of where it occurred.</p>
+<p>A general error will look like this:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">file_location:LINE NUMBER: error message
+stack traceback:
+    file_location:LINE NUMBER: in &lt;local/function&gt; 'FUNC'
+    file_location:LINE NUMBER: in main chunk
+    [C]: in ?</code></pre>
+</doc-codeblock></div>
+<p>Here&#x27;s an example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">C:\Users\user\lua_file.lua:5: attempt to perform arithmetic on a nil value (field 'x')
+stack traceback:
+	C:\Users\user\lua_file.lua:5: in local 'c'
+	C:\Users\user\lua_file.lua:7: in local 'b'
+	C:\Users\user\lua_file.lua:9: in function 'a'
+	C:\Users\user\lua_file.lua:12: in main chunk
+	[C]: in ?</code></pre>
+</doc-codeblock></div>
+<p>The code that resulted in this error is:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function a()
+	local function b()
+		local function c()
+			local t = {}
+			t.x = t.x + 5
+		end
+		c()
+	end
+	b()
+end
+
+a()</code></pre>
+</doc-codeblock></div>
+<p>Here you can see the line number <code v-pre>5</code> after the file location, which tells us where the exact line with the code that resulted in the error. The stack traceback shows the functions that were called that led up to that.</p>
+<p>First, function <code v-pre>a</code> is called at line 12, then function <code v-pre>b</code> is called at line 9 inside of <code v-pre>a</code>, then <code v-pre>c</code> is called at line 7 inside of function <code v-pre>b</code>, and finally at line 5, the error occurs inside of function <code v-pre>c</code>.</p>
+<p>A note to add is that comments can offset the line number and make it appear as the error is in a line that doesn&#x27;t exist or doesn&#x27;t look like an error, </p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -178,20 +335,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../lua/standard-libraries/table/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/auxiliary/debugging/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Table</span>
+                                                <span class="block mt-1">Debugging</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../welcome/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/auxiliary/optimizations/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Welcome</span>
+                                                <span class="block mt-1">Optimizations</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -235,6 +392,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Formatting", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Errors", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

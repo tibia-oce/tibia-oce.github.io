@@ -9,32 +9,33 @@
     <meta name="generator" content="Retype 3.8.1">
 
     <!-- Primary Meta Tags -->
-    <title>Formatting</title>
-    <meta name="title" content="Formatting">
-    <meta name="description" content="Hello">
+    <title>Metatables</title>
+    <meta name="title" content="Metatables">
+    <meta name="description" content="Metatables are the underlying implementation of objects in Lua, they define custom behaviors such as addition between 2 objects, subtraction,...">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tibia-oce.github.io/formatting/">
+    <link rel="canonical" href="https://tibia-oce.github.io/lua/concepts/metatables/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="og:title" content="Formatting">
-    <meta property="og:description" content="Hello">
+    <meta property="og:url" content="https://tibia-oce.github.io/lua/concepts/metatables/">
+    <meta property="og:title" content="Metatables">
+    <meta property="og:description" content="Metatables are the underlying implementation of objects in Lua, they define custom behaviors such as addition between 2 objects, subtraction,...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="twitter:title" content="Formatting">
-    <meta property="twitter:description" content="Hello">
+    <meta property="twitter:url" content="https://tibia-oce.github.io/lua/concepts/metatables/">
+    <meta property="twitter:title" content="Metatables">
+    <meta property="twitter:description" content="Metatables are the underlying implementation of objects in Lua, they define custom behaviors such as addition between 2 objects, subtraction,...">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.8.1.801139593773" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +50,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Mythbound</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Wiki</span>
                     </div>
@@ -162,13 +163,83 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="formatting" class="break-words">
+<doc-anchor-target id="metatables" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#formatting">#</doc-anchor-trigger>
-        <span>Formatting</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#metatables">#</doc-anchor-trigger>
+        <span>Metatables</span>
     </h1>
 </doc-anchor-target>
-<p>Hello</p>
+<p>Metatables are the underlying implementation of objects in Lua, they define custom behaviors such as addition between 2 objects, subtraction, accessing the value, etc.</p>
+<p>Each of those are called metamethods, and they all begin with <code v-pre>__</code>.</p>
+<p>All metamethods (Lua 5.1)</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">       __eq :     Equality      :  a == b
+       __le :     Less than     :  a &lt; b
+       __ge :   Greater than    :  a &gt; b
+      __add :     Addition      :  a + b
+      __sub :    Subtraction    :  a - b
+      __mul :   Multiplication  :  a * b
+      __div :     Division      :  a / b
+      __pow :   Exponentation   :  a ^ b
+      __unm :     Negation      :  -a
+      __mod :      Modulus      :  a % b
+   __concat :   Concatenation   :  a .. b
+__metatable :     Metatable     :  getmetatable(a)
+     __call :       Call        :  table()
+    __index :     Indexing      :  table.x | table['x']
+ __newindex :     New Index     :  table.x = 'abc'
+     __mode :  Weak References  :  mt.__mode = 'k'
+ __tostring : String Conversion :  tostring(a)</code></pre>
+</doc-codeblock></div>
+<p>By default whenever you have a string, it has a metatable attached to it as you can see here:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local s = &quot;abc&quot;
+
+print(getmetatable(s)) -- {__index = table: 0x56458af94c30}
+
+for k, v in pairs(getmetatable(s).__index) do
+	print(k, v)
+end</code></pre>
+</doc-codeblock></div>
+<p>When attempting to index the string, it instead returns the <code v-pre>string</code> library table. Which is why if you run this code, you&#x27;ll see the <code v-pre>__index</code> of the metatable print this out:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">dump	function: 0x557e9eddcba0
+byte	function: 0x557e9eddcd70
+reverse	function: 0x557e9eddba30
+lower	function: 0x557e9eddbcd0
+gsub	function: 0x557e9eddd810
+upper	function: 0x557e9eddb980
+sub	    function: 0x557e9eddcc50
+match	function: 0x557e9eddd7f0
+gmatch	function: 0x557e9eddc000
+rep	    function: 0x557e9eddbae0
+len	    function: 0x557e9eddbc70
+char	function: 0x557e9eddc060
+format	function: 0x557e9eddc1c0
+find	function: 0x557e9eddd800</code></pre>
+</doc-codeblock></div>
+<p>You can directly access these by indexing the string directly, instead of going through the string library:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local s = &quot;abc&quot;
+print(s.len(s)) -- 3
+print(s:len()) -- 3</code></pre>
+</doc-codeblock></div>
+<p>The second print uses the <code v-pre>:</code> syntactic sugar, both are equivalent, but the second is preferred for shorter code. The left hand of the <code v-pre>:</code> will be inserted as the first argument to <code v-pre>string.len</code>, and will result in the equivalent code: <code v-pre>string.len(s)</code>.</p>
+<p>You can create your own tables and define metatables for them to do as you&#x27;d like, like so:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {1, 2, 3}
+
+print(tostring(t)) -- table: 0x55b410c31620
+
+setmetatable(t, {
+    __tostring = function(self)
+        return table.concat(self, ', ')
+    end
+})
+
+print(tostring(t)) -- __tostring invoked, output is 1, 2, 3</code></pre>
+</doc-codeblock></div>
+<p>Here we define a custom metamethod for the <code v-pre>tostring</code> function for the table, which instead calls table.concat to concatenate all table values in sequence with a separator of <code v-pre>,</code> inbetween each value. </p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -178,20 +249,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../lua/standard-libraries/table/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/concepts/memoization/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Table</span>
+                                                <span class="block mt-1">Memoization</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../welcome/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/concepts/object-oriented-programming/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Welcome</span>
+                                                <span class="block mt-1">Object-​Oriented Programming</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -235,6 +306,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Formatting", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Metatables", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

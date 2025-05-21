@@ -9,32 +9,33 @@
     <meta name="generator" content="Retype 3.8.1">
 
     <!-- Primary Meta Tags -->
-    <title>Formatting</title>
-    <meta name="title" content="Formatting">
-    <meta name="description" content="Hello">
+    <title>Basic</title>
+    <meta name="title" content="Basic">
+    <meta name="description" content="Description: Global variable that holds the global environment (all global functions/variables)">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tibia-oce.github.io/formatting/">
+    <link rel="canonical" href="https://tibia-oce.github.io/lua/standard-libraries/basic/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="og:title" content="Formatting">
-    <meta property="og:description" content="Hello">
+    <meta property="og:url" content="https://tibia-oce.github.io/lua/standard-libraries/basic/">
+    <meta property="og:title" content="Basic">
+    <meta property="og:description" content="Description: Global variable that holds the global environment (all global functions/variables)">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="twitter:title" content="Formatting">
-    <meta property="twitter:description" content="Hello">
+    <meta property="twitter:url" content="https://tibia-oce.github.io/lua/standard-libraries/basic/">
+    <meta property="twitter:title" content="Basic">
+    <meta property="twitter:description" content="Description: Global variable that holds the global environment (all global functions/variables)">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.8.1.801139593773" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +50,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Mythbound</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Wiki</span>
                     </div>
@@ -162,13 +163,325 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="formatting" class="break-words">
+<doc-anchor-target id="basic" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#formatting">#</doc-anchor-trigger>
-        <span>Formatting</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#basic">#</doc-anchor-trigger>
+        <span>Basic</span>
     </h1>
 </doc-anchor-target>
-<p>Hello</p>
+<doc-anchor-target id="_g">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#_g">#</doc-anchor-trigger>
+        <span>_G</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: Global variable that holds the global environment (all global functions/variables)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">print(_G.tostring(true)) -- tostring is global, which makes it accessible via _G as well</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="setfenv">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setfenv">#</doc-anchor-trigger>
+        <span>setfenv</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: sets the environment for a function to use, rather than _G.</p>
+<p>Usage: setfenv(f)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function x()
+    zzz.x = 5
+    print() -- will not work here, the environment is not _G.
+end
+
+setfenv(x, {zzz = {x = 10}})</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="getfenv">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getfenv">#</doc-anchor-trigger>
+        <span>getfenv</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: returns the environment in use by given function or stack level, default 1.</p>
+<p>Usage: getfenv([f])</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function x()
+    zzz.x = 5
+    print() -- will not work here, the environment is not _G.
+end
+
+setfenv(x, {zzz = {x = 10}})
+print(getfenv(x)) -- environment is {zzz = {x = 10}}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="setmetatable">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#setmetatable">#</doc-anchor-trigger>
+        <span>setmetatable</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: sets the metatable for given table</p>
+<p>Usage: setmetatable(table, metatable)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {}
+setmetatable(t, {__call = print})</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="getmetatable">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#getmetatable">#</doc-anchor-trigger>
+        <span>getmetatable</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: gets the metatable of specified table, returning the <code v-pre>__metatable</code> metamethod&#x27;s value if applicable</p>
+<p>Usage: getmetatable(table)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {}
+setmetatable(t, {__call = print})
+print(getmetatable(t)) -- {__call = print}
+setmetatable(t, {__metatable = {x = 5}})
+print(getmetatable(t)) -- {x = 5}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="rawset">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rawset">#</doc-anchor-trigger>
+        <span>rawset</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: sets a value in the table at specified index without invoking any metamethods</p>
+<p>Usage: rawset(table, index, value)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {}
+setmetatable(t, {__newindex = function(self, k, v)
+    print('Value set at index '.. tostring(k) ..' to value '.. tostring(v))
+end})
+
+t.x = 5 -- Value set at index x to value 5
+rawset(t, 'xx', 50) -- prints nothing, __newindex is not be invoked</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="rawget">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rawget">#</doc-anchor-trigger>
+        <span>rawget</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: returns a value from a table at given index without invoking any metamethods</p>
+<p>Usage: rawget(table, index)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {}
+setmetatable(t, {__index = function(self, k, v)
+    print('Accessing value at index '.. tostring(k))
+end})
+
+print(t.x) -- Accessing value at index x
+print(rawget(t, 'x')) -- nothing, __index is not invoked</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="rawequal">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#rawequal">#</doc-anchor-trigger>
+        <span>rawequal</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: compares two values using == without invoking any metamethod</p>
+<p>Usage: rawequal(v1, v2)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local mt = {__eq = function(a, b)
+    print('Checking equality ( '.. tostring(a) ..' vs '.. tostring(b) ..' )')
+    return rawequal(a, b)
+end}
+
+local t = {}
+setmetatable(t, mt)
+
+local t2 = {}
+setmetatable(t2, mt)
+
+print(t == t2) -- Checking equality ( table: 00f28b00 vs table: 00f28a10 )
+print(rawequal(t, t2)) -- nothing, __eq is not invoked</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="pairs">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pairs">#</doc-anchor-trigger>
+        <span>pairs</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: iterator to traverse over a table in any order possible</p>
+<p>Usage: pairs(t)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {1, 2, 3}
+for k, v in pairs(t) do
+    print(k, v)
+end</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="ipairs">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#ipairs">#</doc-anchor-trigger>
+        <span>ipairs</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: iterator to traverse over a table in sequence</p>
+<p>Usage: ipairs(t)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {1, 2, 3}
+for k, v in ipairs(t) do
+    print(k, v)
+end</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="loadstring">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#loadstring">#</doc-anchor-trigger>
+        <span>loadstring</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: loads a Lua chunk</p>
+<p>Usage: loadstring(string [, chunkName])</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local f = loadstring([[return function() print(123) end]])
+f() -- 123</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="loadfile">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#loadfile">#</doc-anchor-trigger>
+        <span>loadfile</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: loads a Lua chunk from specified file, or from standard input if filename is not specified</p>
+<p>Usage: loadfile([filename])</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">-- x.lua
+return function() print(123) end
+
+-- other file.lua
+local f = loadfile(&quot;x.lua&quot;)
+f() -- 123</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="next">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#next">#</doc-anchor-trigger>
+        <span>next</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: returns the next key, value pair in <code v-pre>table</code> starting from specified index, otherwise <code v-pre>index</code>, is nil</p>
+<p>Usage: next(table [, index])</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {1, 2, 3}
+print(next(t, 2)) -- 3, 3
+print(next(t)) -- 1, 1</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="pcall">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pcall">#</doc-anchor-trigger>
+        <span>pcall</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: calls a function in a protected state, returning any errors if they happen, otherwise returns true if successful plus the returned values from <code v-pre>f</code></p>
+<p>Usage: pcall(f, ...)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function x(n)
+    return x + n
+end
+
+local success, ret = pcall(x, 5)
+print(success, ret) -- false    C:\Users\user\lua_file.lua:2: attempt to perform arithmetic on a function value (global 'x')</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="xpcall">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#xpcall">#</doc-anchor-trigger>
+        <span>xpcall</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: calls a function in a protected state, using <code v-pre>err</code> as the error handler and returning true if no errors happen, otherwise returns false plus the result from <code v-pre>err</code></p>
+<p>Usage: xpcall(f, err)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function x(n)
+    return x + n
+end
+
+local function x_error_handler(error)
+	print(error)
+	return 123
+end
+
+local success, ret = xpcall(x, x_error_handler)
+print(success, ret)</code></pre>
+</doc-codeblock></div>
+<p>Output:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-none"><code v-pre class="language-none">C:\Users\user\lua_file.lua:2: attempt to perform arithmetic on a function value (global 'x')
+false 123</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="unpack">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#unpack">#</doc-anchor-trigger>
+        <span>unpack</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: unpacks a table in sequence, starting from i and ending with j (1, #table respectively by default), returning all values from it</p>
+<p>Usage: unpack(table [, i [, j]])</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {1, 2, 3, 4, 5}
+print(unpack(t)) -- 1, 2, 3, 4, 5
+print(unpack(t, 2, 4)) -- 2, 3, 4</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="type">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#type">#</doc-anchor-trigger>
+        <span>type</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: returns the data type of given value</p>
+<p>Usage: type(value)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">print(type(123)) -- number
+print(type({})) -- table
+print(type(nil)) -- nil
+print(type('')) -- string
+print(type(true)) -- boolean</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="tonumber">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tonumber">#</doc-anchor-trigger>
+        <span>tonumber</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: converts value to a number if possible</p>
+<p>Usage: tonumber(val [,base])</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = '5'
+print(tonumber(x)) -- 5
+print(type(tonumber(x))) -- number
+print(type(x)) -- string</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="tostring">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tostring">#</doc-anchor-trigger>
+        <span>tostring</span>
+    </h3>
+</doc-anchor-target>
+<p>Description: converts value to a string</p>
+<p>Usage: tostring(val)</p>
+<p>Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">print(tostring({})) -- table: 00ee88a8
+print(tostring(5)) -- 5
+
+print('This is a boolean: '.. tostring(true)) -- This is a boolean: true</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -178,20 +491,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../lua/standard-libraries/table/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/fundamentals-1/variables/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Table</span>
+                                                <span class="block mt-1">Variables</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../welcome/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/standard-libraries/coroutine/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Welcome</span>
+                                                <span class="block mt-1">Coroutine</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -235,6 +548,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Formatting", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Basic", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

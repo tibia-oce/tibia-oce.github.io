@@ -9,32 +9,33 @@
     <meta name="generator" content="Retype 3.8.1">
 
     <!-- Primary Meta Tags -->
-    <title>Formatting</title>
-    <meta name="title" content="Formatting">
-    <meta name="description" content="Hello">
+    <title>Recursion</title>
+    <meta name="title" content="Recursion">
+    <meta name="description" content="Recursion is a technique used to use an algorithm or function that calls itself repetitively until a certain condition is satisfied.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tibia-oce.github.io/formatting/">
+    <link rel="canonical" href="https://tibia-oce.github.io/lua/concepts/recursion/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="og:title" content="Formatting">
-    <meta property="og:description" content="Hello">
+    <meta property="og:url" content="https://tibia-oce.github.io/lua/concepts/recursion/">
+    <meta property="og:title" content="Recursion">
+    <meta property="og:description" content="Recursion is a technique used to use an algorithm or function that calls itself repetitively until a certain condition is satisfied.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="twitter:title" content="Formatting">
-    <meta property="twitter:description" content="Hello">
+    <meta property="twitter:url" content="https://tibia-oce.github.io/lua/concepts/recursion/">
+    <meta property="twitter:title" content="Recursion">
+    <meta property="twitter:description" content="Recursion is a technique used to use an algorithm or function that calls itself repetitively until a certain condition is satisfied.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.8.1.801139593773" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +50,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Mythbound</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Wiki</span>
                     </div>
@@ -162,13 +163,79 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="formatting" class="break-words">
+<doc-anchor-target id="recursion" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#formatting">#</doc-anchor-trigger>
-        <span>Formatting</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#recursion">#</doc-anchor-trigger>
+        <span>Recursion</span>
     </h1>
 </doc-anchor-target>
-<p>Hello</p>
+<p>Recursion is a technique used to use an algorithm or function that calls itself repetitively until a certain condition is satisfied.</p>
+<p>The go-to example for recursion is a factorial function:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function fact(n)
+    if n == 0 then
+        return 1
+    end
+    return n * fact(n - 1)
+end</code></pre>
+</doc-codeblock></div>
+<p>Here it will calculate the factorial by returning each value multiplied by the result of <code v-pre>fact(n - 1)</code>. It can be a bit confusing, since we know return breaks out and gives back a value to whatever called the function, but before a return can give back a value, it needs to be evaluated first. And until <code v-pre>n</code> reaches 0, it will keep trying to evaluate <code v-pre>n * fact(n - 1)</code> . Once <code v-pre>n</code> does reach 0, it returns the next multiplier (1) and then the first call to <code v-pre>fact</code> will be able to return the evaluated result. All of these is quite literally a chain of returns.</p>
+<p>Here&#x27;s a diagram of what&#x27;s really happening:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">fact(3)
+--[[
+fact(3)
+|
+-&gt; return (3 * fact(2))
+| [6] (3 * 2)  |
+|        |     -&gt; return (2 * fact(1))
+|        &lt;------- [2] (2 * 1) |
+|                         |   -&gt; return (1 * fact(0))
+|                         |                  |
+|                         |                  -&gt; return 1
+|                         &lt;---------- [1]   (1 * 1)
+-&gt; fact(3) = 6, (3 * 2) end result                                  
+]]</code></pre>
+</doc-codeblock></div>
+<p>Here you can see the chain of returns, and how each <code v-pre>fact</code> call looks. Each time there&#x27;s an attempt to return, it must evaluate what the value of <code v-pre>fact(n - 1)</code> is before giving back a value. Which is why the second it tries to return <code v-pre>3 * fact(2)</code>, it evaluates <code v-pre>fact(2)</code>, but <code v-pre>fact(2)</code> will have to evaluate <code v-pre>fact(1)</code>, and <code v-pre>fact(1)</code> will have to evaluate <code v-pre>fact(0)</code>. The second that chain breaks by returning 1, it goes back up each return and will &quot;insert&quot; the result of that <code v-pre>fact</code> call and multiply it. I tried to show this as best I could, the return statements evaluated in parentheses, the result in square brackets [X] and a display to show the chain of where it&#x27;s inserted/used as the multiplier in the above return.</p>
+<p>Another example of recursion would be a Fibonacci sequence:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function fib(n)
+    if n &lt; 3 then
+        return 1
+    end
+    return fib(n-1) + fib(n-2)
+end</code></pre>
+</doc-codeblock></div>
+<p>Here, it will calculate n-1 + n-2 until both <code v-pre>n</code>s reach a value which is less than 3. Each of these <code v-pre>fib</code> calls chain out like <code v-pre>fact</code> did, each call must be evaluated before it can be returned for usage.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">fib(5)
+--[[
+fib(5) | Result: 5
+  |              ^
+  |              |
+  |              ----------------------|
+  --&gt; return fib(4) + fib(3)  | (3+2) [5]
+                | ^     ^  |
+                | |     |  ---&gt;  return fib(2) + fib(1)    | (1+1) [2]
+                | |     --------------------------------------------|
+                | |
+                | -------------------------------------|
+                ---&gt; return fib(3) + fib(2)   | (2+1) [3]
+                             ^  |      ^ |                                  
+                             |  |      | -&gt; return 1   [1]
+                             |  |      -----------------|
+                             |  |
+                             |  -&gt; return fib(2) + fib(1)    | (1+1)  [2]
+                             |              ^ |      ^ |               |
+                             |              | |      | -&gt; return 1 [1] |
+                             |              | |      ---------------|  |
+                             |              | -&gt; return 1 [1]          |
+                             |              ---------------|           |
+                             ------------------------------------------|
+  ]] </code></pre>
+</doc-codeblock></div>
+<p>Again, the evaluation is in parentheses, the result is in square brackets and moves back up the chain. Reading this diagram, you go bottom-right, then follow the square brackets back up the chain, up-left.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -178,20 +245,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../lua/standard-libraries/table/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/concepts/object-oriented-programming/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Table</span>
+                                                <span class="block mt-1">Object-​Oriented Programming</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../welcome/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/concepts/weak-tables/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Welcome</span>
+                                                <span class="block mt-1">Weak Tables</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -235,6 +302,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Formatting", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Recursion", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>

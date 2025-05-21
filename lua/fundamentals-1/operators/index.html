@@ -9,32 +9,33 @@
     <meta name="generator" content="Retype 3.8.1">
 
     <!-- Primary Meta Tags -->
-    <title>Formatting</title>
-    <meta name="title" content="Formatting">
-    <meta name="description" content="Hello">
+    <title>Operators</title>
+    <meta name="title" content="Operators">
+    <meta name="description" content="Operators are a symbol(s) to perform a specific action. Operands are the values the operator uses in the action.">
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tibia-oce.github.io/formatting/">
+    <link rel="canonical" href="https://tibia-oce.github.io/lua/fundamentals-1/operators/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="og:title" content="Formatting">
-    <meta property="og:description" content="Hello">
+    <meta property="og:url" content="https://tibia-oce.github.io/lua/fundamentals-1/operators/">
+    <meta property="og:title" content="Operators">
+    <meta property="og:description" content="Operators are a symbol(s) to perform a specific action. Operands are the values the operator uses in the action.">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://tibia-oce.github.io/formatting/">
-    <meta property="twitter:title" content="Formatting">
-    <meta property="twitter:description" content="Hello">
+    <meta property="twitter:url" content="https://tibia-oce.github.io/lua/fundamentals-1/operators/">
+    <meta property="twitter:title" content="Operators">
+    <meta property="twitter:description" content="Operators are a symbol(s) to perform a specific action. Operands are the values the operator uses in the action.">
 
     <script data-cfasync="false">(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
+    <link href="../../../resources/css/retype.css?v=3.8.1.801139593773" rel="stylesheet">
 
-    <script data-cfasync="false" src="../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
-    <script data-cfasync="false" src="../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" data-cfasync="false" src="../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/config.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script data-cfasync="false" src="../../../resources/js/retype.js?v=3.8.1" data-turbo-eval="false" defer></script>
+    <script id="lunr-js" data-cfasync="false" src="../../../resources/js/lunr.js?v=3.8.1.801139593773" data-turbo-eval="false" defer></script>
+    <script id="prism-js" data-cfasync="false" src="../../../resources/js/prism.js?v=3.8.1.801139593773" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -49,7 +50,7 @@
                 <!-- Logo -->
                 <div class="flex items-center justify-between h-full py-2 md:w-75">
                     <div class="flex items-center px-2 md:px-6">
-                        <a id="docs-site-logo" href="../" class="flex items-center leading-snug text-2xl">
+                        <a id="docs-site-logo" href="../../../" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-bold line-clamp-1 md:line-clamp-2">Mythbound</span>
                         </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">Wiki</span>
                     </div>
@@ -162,13 +163,262 @@
                                 <!-- Rendered if sidebar right is enabled -->
                                 <div id="docs-sidebar-right-toggle"></div>
                                 <!-- Page content  -->
-<doc-anchor-target id="formatting" class="break-words">
+<doc-anchor-target id="operators" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#formatting">#</doc-anchor-trigger>
-        <span>Formatting</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#operators">#</doc-anchor-trigger>
+        <span>Operators</span>
     </h1>
 </doc-anchor-target>
-<p>Hello</p>
+<p>Operators are a symbol(s) to perform a specific action. Operands are the values the operator uses in the action.</p>
+<doc-anchor-target id="relational-operators">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#relational-operators">#</doc-anchor-trigger>
+        <span>Relational Operators</span>
+    </h3>
+</doc-anchor-target>
+<p>When using these operators, both operands must be the of the same type.</p>
+<p>Comparing by reference means both operands must point to the exact same memory address, the value of its contents don&#x27;t matter. Example:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local a = {1, 2, 3}
+local b = {1, 2, 3}
+local c = a -- c now also holds the same reference to the table that a does
+print(a == b) -- Output: false, both have separate memory addresses
+print(a == c) -- Output: true, both variables hold the same reference to the exact same table</code></pre>
+</doc-codeblock></div>
+<doc-tabs>
+<doc-tab v-cloak id="">
+<template #title>&lt;</template>
+<p>Operator: Less Than (<code v-pre>a &lt; b</code>)</p>
+<p>If the value of <code v-pre>a</code> is less than <code v-pre>b</code>, the result is <code v-pre>true</code>, otherwise, <code v-pre>false</code>.</p>
+<p>Operands Types:</p>
+<ul>
+<li>number (compares by value)</li>
+<li>string (compares by alphabetical order)</li>
+</ul>
+</doc-tab>
+<doc-tab v-cloak id="">
+<template #title>&gt;</template>
+<p>Operator: Greater Than (<code v-pre>a &gt; b</code>)</p>
+<p>If the value of <code v-pre>a</code> is greater than <code v-pre>b</code>, the result is <code v-pre>true</code>, otherwise, <code v-pre>false</code>.</p>
+<p>Operands Types:</p>
+<ul>
+<li>number (compares by value)</li>
+<li>string (compares by alphabetical order)</li>
+</ul>
+</doc-tab>
+<doc-tab v-cloak id="">
+<template #title>&lt;=</template>
+<p>Operator: Less Than or Equal To (<code v-pre>a &lt;= b</code>)</p>
+<p>If the value of <code v-pre>a</code> is less than or equal to <code v-pre>b</code>, the result is <code v-pre>true</code>, otherwise, <code v-pre>false</code>.</p>
+<p>Operands Types:</p>
+<ul>
+<li>number (compares by value)</li>
+<li>string (compares by alphabetical order)</li>
+</ul>
+</doc-tab>
+<doc-tab v-cloak id="">
+<template #title>&gt;=</template>
+<p>Operator: Greater Than or Equal To (<code v-pre>a &gt;= b</code>)</p>
+<p>If the value of <code v-pre>a</code> is greater than or equal to <code v-pre>b</code>, the result is <code v-pre>true</code>, otherwise, <code v-pre>false</code>.</p>
+<p>Operands Types:</p>
+<ul>
+<li>number (compares by value)</li>
+<li>string (compares by alphabetical order)</li>
+</ul>
+</doc-tab>
+<doc-tab v-cloak id="">
+<template #title>==</template>
+<p>Operator: Equal (<code v-pre>a == b</code>)</p>
+<p>If <code v-pre>a</code> is exactly equal to <code v-pre>b</code>, the result is <code v-pre>true</code>, otherwise, <code v-pre>false</code>.</p>
+<p>Operands Types:</p>
+<ul>
+<li>number (compares by value)</li>
+<li>string (compares by value)</li>
+<li>boolean (compares by value)</li>
+<li>function (compares by reference)</li>
+<li>table (compares by reference)</li>
+<li>userdata (compares by reference)</li>
+<li>thread (compares by reference)</li>
+</ul>
+</doc-tab>
+<doc-tab v-cloak id="">
+<template #title>~=</template>
+<p>Operator: Not Equal (<code v-pre>a ~= b</code>)</p>
+<p>If <code v-pre>a</code> is anything but <code v-pre>b</code>, the result is <code v-pre>true</code>, otherwise, <code v-pre>false</code>.</p>
+<p>Operands Types:</p>
+<ul>
+<li>number (compares by value)</li>
+<li>string (compares by value)</li>
+<li>boolean (compares by value)</li>
+<li>function (compares by reference)</li>
+<li>table (compares by reference)</li>
+<li>userdata (compares by reference)</li>
+<li>thread (compares by reference)</li>
+</ul>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="logical-operators">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#logical-operators">#</doc-anchor-trigger>
+        <span>Logical Operators</span>
+    </h3>
+</doc-anchor-target>
+<p>Note: When something is defined as being &quot;truthy&quot;, it means that the value is considered to be <code v-pre>true</code> by Lua, which is any value that isn&#x27;t <code v-pre>false</code> or <code v-pre>nil</code>.</p>
+<doc-tabs>
+<doc-tab v-cloak id="and">
+<template #title>and</template>
+<p>Syntax: <code v-pre>a and b</code> where a &amp; b are both evaluated as expressions.</p>
+<p>If <code v-pre>a</code> is truthy, <code v-pre>b</code> is the result of the operation, otherwise it is the result of <code v-pre>a</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = true and 5 -- x is 5
+local y = x and 10 -- y is 10, x is evaluated to true because 5 isn't a value of false or nil
+local z = false and 100 -- false, a is not truthy thus the second value is not the result</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="or">
+<template #title>or</template>
+<p>Syntax: <code v-pre>a or b</code> where a &amp; b are both evaluated as expressions.</p>
+<p>If <code v-pre>a</code> is truthy, result is <code v-pre>a</code>, otherwise <code v-pre>b</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = true or 5 -- x is true, a is truthy so b is never evaluated
+local y = false or 10 -- y is 10, a is not truthy so b is evaluated and the result
+local z = (10 &gt; 5) or (x + y) -- true, a is evaluated and 10 &gt; 5 results in true, b is never evaluated</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="not">
+<template #title>not</template>
+<p>Syntax: <code v-pre>not a</code> </p>
+<p>Inverts the truthiness of <code v-pre>a</code>, any expression or value that results in true, the value is flipped to false, and vice versa.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = not true -- x is false
+local y = not x -- y is true</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<p>Here are some more examples pairing these operators together:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = 1
+local y = 2
+--    (    A operand to 'or'    )    (  B operand to 'or'  )
+--    (1 &gt; 2  and &lt;expression&gt;  ) or (&lt;fallback expression&gt;)    
+print((x &gt; y) and 'X is greater!' or 'Y is greater!') -- Output: Y is greater!</code></pre>
+</doc-codeblock></div>
+<p>Since 1 (x) is not a greater number than 2 (y), the result of the <code v-pre>and</code> operator is <code v-pre>nil</code> because of the <code v-pre>a</code> operand resulting in <code v-pre>false</code>, the <code v-pre>or</code> operator comes in because the result of the <code v-pre>and</code> operation is the <code v-pre>a</code> operand to <code v-pre>or</code>, so the result looks like <code v-pre>nil or 'Y is greater!'</code>. In plain English, all that&#x27;s happening here is: &quot;If my x variable is bigger than our y variable, give me back a string that says X is greater, otherwise, give me a string that says Y is greater.&quot;</p>
+<doc-anchor-target id="mathematical-operators">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#mathematical-operators">#</doc-anchor-trigger>
+        <span>Mathematical Operators</span>
+    </h3>
+</doc-anchor-target>
+<doc-tabs>
+<doc-tab v-cloak id="addition">
+<template #title>Addition (+)</template>
+<p>Syntax: <code v-pre>a + b</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = 5 + 10 -- 15
+local y = 1.2 + 6.3 -- 7.5</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="subtraction">
+<template #title>Subtraction (-)</template>
+<p>Syntax: <code v-pre>a - b</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = 5 - 2 -- 3
+local y = 2.5 - 1.2 -- 1.3</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="multiplication">
+<template #title>Multiplication (*)</template>
+<p>Syntax: <code v-pre>a * b</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = 5 * 3 -- 15
+local y = 1.5 * 1.5 -- 2.25</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="division">
+<template #title>Division (/)</template>
+<p>Syntax: <code v-pre>a / b</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = 10 / 2 -- 5
+local y = 9 / 2.5 -- 3.6</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="exponentation">
+<template #title>Exponentation (^)</template>
+<p>Syntax: <code v-pre>a ^ b</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = 5 ^ 2 -- 25
+local y = 2 ^ 2.5 -- 5.65685424949</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+<doc-tab v-cloak id="negation">
+<template #title>Negation (-)</template>
+<p>Syntax: <code v-pre>-a</code></p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local x = -5 -- -5
+local y = 10 -- 10
+y = -y -- y is now -10
+y = -x -- y is now 5</code></pre>
+</doc-codeblock></div>
+</doc-tab>
+</doc-tabs>
+<doc-anchor-target id="concatenation">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#concatenation">#</doc-anchor-trigger>
+        <span>Concatenation</span>
+    </h3>
+</doc-anchor-target>
+<p>Concatenation is an operation that joins two strings together. The result is a copy of both strings joined together, since Lua cannot manipulate the contents of a string itself.</p>
+<p>Syntax: <code v-pre>a .. b</code></p>
+<p>Examples:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local a = &quot;Hello &quot;
+local b = &quot;, world!&quot;
+print(a .. b) -- Output: Hello, world!</code></pre>
+</doc-codeblock></div>
+<div class="flex mb-6">
+    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
+    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
+        <div class="flex items-center ml-4 h-7">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
+                <g fill="currentColor"><g>
+                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
+                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                </g></g>
+            </svg>
+        </div>
+        <div class="pr-5 ml-3 w-full">
+<p>You can chain these operators however many times you like in any order.</p>
+        </div>
+    </div>
+</div>
+<doc-anchor-target id="length">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#length">#</doc-anchor-trigger>
+        <span>Length</span>
+    </h3>
+</doc-anchor-target>
+<p>The length operator (#) is primarily used on tables, but can be effective for strings as well. For strings, it returns the number of bytes (usually each byte is a single character). For tables, it returns the length of the table as long as it has no holes and is ordered:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">local t = {1, 2, 3}
+print(#t) -- 3</code></pre>
+</doc-codeblock></div>
+<p>Depending on the version of Lua you&#x27;re using, if the array or table has nil values inbetween the other values, the result of the length operator will be different. Any keys that aren&#x27;t numerical are not counted towards the length.</p>
+<p>If you have keys that aren&#x27;t numbers, or have nil values/holes in your table, a table size function can be implemented by simply using the <code v-pre>pairs</code> iterator:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-lua"><code v-pre class="language-lua">function table.size(t)
+    local size = 0
+    for k, v in pairs(t) do
+        size = size + 1
+    end
+    return size
+end
+
+local t = {1, 2, 3}
+local t2 = {a = 5, [2] = 4, 84}
+print(table.size(t), table.size(t2)) -- Output: 3 3</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -178,20 +428,20 @@
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../lua/standard-libraries/table/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/fundamentals-1/loops/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Table</span>
+                                                <span class="block mt-1">Loops</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../welcome/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../../lua/fundamentals-1/scopes/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Welcome</span>
+                                                <span class="block mt-1">Scopes</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -235,6 +485,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script data-cfasync="false">window.__DOCS__ = { "title": "Formatting", level: 1, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
+    <script data-cfasync="false">window.__DOCS__ = { "title": "Operators", level: 3, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false, tocDepth: 23 }</script>
 </body>
 </html>
