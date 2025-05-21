@@ -1,7 +1,7 @@
 ---
 label: About the Wiki
 icon: info
-order: 80
+order: 110
 ---
 
 # About the Mythbound Wiki
