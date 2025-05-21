@@ -1,7 +1,7 @@
 ---
 label: About
 icon: question
-order: 10
+order: 110
 ---
 
 # Mythbound RPG Wiki
