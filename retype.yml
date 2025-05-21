@@ -6,6 +6,7 @@ url: https://tibia-oce.github.io/
 branding:
   title: Mythbound
   label: Wiki
+  # logo: static/logo.png
 
 links:
   - text: Getting Started
